@@ -6,6 +6,7 @@ import App from "./components/app";
 import Dashboard from "./components/dashboard";
 import Stats from "./components/stats";
 import Settings from "./components/settings";
+import NotFound from "./components/not-found";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact/>
+      },
+      {
+        path: '/old_home',
+        element: <Navigate to="/home"/>
       },
       {
         path: '/dashboard',
@@ -43,5 +48,9 @@ export const router = createBrowserRouter([
         ]
       }
     ]
+  },
+  {
+    path: '*',
+    element: <NotFound/>
   }
 ]);
