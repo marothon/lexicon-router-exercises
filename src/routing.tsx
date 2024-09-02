@@ -7,6 +7,7 @@ import Dashboard from "./components/dashboard";
 import Stats from "./components/stats";
 import Settings from "./components/settings";
 import NotFound from "./components/not-found";
+import ProtectedRoute from "./components/protected-route";
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +32,10 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard',
-        element: <Dashboard/>,
+        element:
+          <ProtectedRoute>
+            <Dashboard/>
+          </ProtectedRoute>,
         children: [
           {
             index: true,
@@ -50,7 +54,11 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path: '*',
+    path: '/not-found',
     element: <NotFound/>
+  },
+  {
+    path: '*',
+    element: <Navigate to='/not-found' replace/>
   }
 ]);
