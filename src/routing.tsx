@@ -8,6 +8,7 @@ import Stats from "./components/stats";
 import Settings from "./components/settings";
 import NotFound from "./components/not-found";
 import ProtectedRoute from "./components/protected-route";
+import UserProfile from "./components/user-profile";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: '/old_home',
         element: <Navigate to="/home"/>
+      },
+      {
+        path: '/user/:id',
+        element: <UserProfile/>
       },
       {
         path: '/dashboard',
