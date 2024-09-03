@@ -9,6 +9,10 @@ import Settings from "./components/settings";
 import NotFound from "./components/not-found";
 import ProtectedRoute from "./components/protected-route";
 import UserProfile from "./components/user-profile";
+import SignUp from "./components/signup";
+import SignUpStep1 from "./components/signup-step1";
+import SignUpStep2 from "./components/signup-step2";
+import SignUpStep3 from "./components/signup-step3";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +38,28 @@ export const router = createBrowserRouter([
       {
         path: '/user/:id',
         element: <UserProfile/>
+      },
+      {
+        path: '/signup',
+        element: <SignUp/>,
+        children: [
+          {
+            index: true,
+            element: <Navigate to='step1' replace/>
+          },
+          {
+            path: 'step1',
+            element: <SignUpStep1/>
+          },
+          {
+            path: 'step2',
+            element: <SignUpStep2/>
+          },
+          {
+            path: 'step3',
+            element: <SignUpStep3/>
+          }
+        ]
       },
       {
         path: '/dashboard',
